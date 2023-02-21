@@ -13,17 +13,71 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
       backgroundColor: Color.fromARGB(255, 5, 122, 99),
       body: SafeArea(
-        child: Column(children: [
-          CircleAvatar(
-            radius: 50,
-            backgroundImage: AssetImage('images/m.jpg'),
-          ),
-          Text(
-            "Mohammd Ghanbari",
-            style: TextStyle(
-                fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold),
-          )
-        ]),
+        child: Center(
+          child: Column(children: [
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('images/m.jpg'),
+            ),
+            Text(
+              "Mohammd Ghanbari",
+              style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Mynerve"),
+            ),
+            Text(
+              "Flutter Developer",
+              style: TextStyle(
+                  fontSize: 25,
+                  color: Color.fromARGB(255, 203, 234, 231),
+                  letterSpacing: 2.5,
+                  fontWeight: FontWeight.bold),
+            ),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 150),
+              color: Colors.white,
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.phone,
+                      color: Colors.teal.shade900,
+                    ),
+                    title: Text(
+                      "+98 09046909694",
+                      style: TextStyle(color: Colors.teal.shade900),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 90),
+              color: Colors.white,
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.email,
+                      color: Colors.teal.shade900,
+                    ),
+                    title: Text(
+                      "mohamad.ghanbary1999@gmail.com",
+                      style: TextStyle(color: Colors.teal.shade900),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ]),
+        ),
       ),
     ));
   }
