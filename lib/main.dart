@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,6 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(debugShowCheckedModeBanner: false, home: MyHomePage());
+  }
+}
+
+_launchURLBrowser() async {
+  var url = Uri.parse("https://github.com/ghanbaridev/");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
 
@@ -60,7 +69,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                     Card(
                       margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 150),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 140),
                       color: Colors.white,
                       child: Center(
                         child: Padding(
@@ -83,7 +92,7 @@ class MyHomePage extends StatelessWidget {
                     ),
                     Card(
                       margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 90),
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 140),
                       color: Colors.white,
                       child: Center(
                         child: Padding(
@@ -101,12 +110,34 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    GestureDetector(
+                      onDoubleTap: _launchURLBrowser,
+                      child: Card(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 140),
+                        color: Colors.white,
+                        child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(15),
+                            child: ListTile(
+                              leading: Icon(
+                                Icons.hub,
+                                color: Colors.teal.shade900,
+                              ),
+                              title: Text(
+                                " My github",
+                                style: TextStyle(color: Colors.teal.shade900),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ]),
             ),
           ]),
         ),
       ),
     );
-    ;
   }
 }
